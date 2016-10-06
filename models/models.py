@@ -5,7 +5,8 @@ from openerp.osv import fields as old_fields
 from openerp.exceptions import except_orm, Warning
 import openerp.addons.decimal_precision as dp
 
-class exportacion_sii(models.Model):
+class account_invoice(models.Model):
+    #_name = 'exportacion.sii'
     _inherit = "account.invoice"
 
     currency_id = fields.Many2one('res.currency', string="Moneda de la exportación")

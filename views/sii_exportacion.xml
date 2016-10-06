@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
       <record id="view_sii_puerto_embarque_form" model="ir.ui.view">
-          <field name="name">exportacion_sii.form</field>
-          <field name="model">exportacion_sii</field>
+          <field name="name">embarque.form</field>
+          <field name="model">embarque</field>
           <field name="arch" type="xml">
               <form string="Puerto de Embarque">
                   <group>
@@ -13,8 +13,8 @@
       </record>
 
       <record id="view_sii_puerto_embarque_tree" model="ir.ui.view">
-          <field name="name">aexportacion_sii.tree</field>
-          <field name="model">exportacion_sii</field>
+          <field name="name">embarque.tree</field>
+          <field name="model">embarque</field>
           <field name="arch" type="xml">
               <tree string="Puerto de Embarque">
                   <field name="shipment_port"/>
@@ -25,47 +25,41 @@
       <record model="ir.actions.act_window" id="puerto_embarque">
           <field name="name">Puerto de Embarque</field>
           <field name="type">ir.actions.act_window</field>
-          <field name="res_model">exportacion_sii</field>
+          <field name="res_model">embarque</field>
           <field name="view_type">form</field>
           <field name="view_mode">tree,form</field>
       </record>
-      <!--<record id="view_sii_cola_envio_form" model="ir.ui.view">
-          <field name="name">account.invoice.form</field>
-          <field name="model">account.invoice</field>
+
+      <record id="view_sii_puerto_desembarque_form" model="ir.ui.view">
+          <field name="name">desembarque.form</field>
+          <field name="model">desembarque</field>
           <field name="arch" type="xml">
-              <form string="SII Cola de envío">
+              <form string="Puerto de Desembarque">
                   <group>
-                    <field name="doc_ids"/>
-                    <field name="model"/>
-                    <field name="user_id" />
-                    <field name='tipo_trabajo'/>
-                    <field name="active"/>
+                    <field name="landing_port"/>
                   </group>
               </form>
           </field>
       </record>
 
-      <record id="view_sii_cola_envio_tree" model="ir.ui.view">
-          <field name="name">account.invoice.tree</field>
-          <field name="model">account.invoice</field>
+      <record id="view_sii_puerto_desembarque_tree" model="ir.ui.view">
+          <field name="name">desembarque.tree</field>
+          <field name="model">desembarque</field>
           <field name="arch" type="xml">
-              <tree string="SII Cola de envío">
-                  <field name="doc_ids"/>
-                  <field name="model"/>
-                  <field name="user_id" />
-                  <field name='tipo_trabajo'/>
-                  <field name="active"/>
+              <tree string="Puerto de Desembarque">
+                    <field name="landing_port"/>
               </tree>
           </field>
       </record>
 
-      <record model="ir.actions.act_window" id="cola_envio">
-          <field name="name">SII Cola de envío</field>
+      <record model="ir.actions.act_window" id="puerto_desembarque">
+          <field name="name">Puerto de Desembarque</field>
           <field name="type">ir.actions.act_window</field>
-          <field name="res_model">account.invoice</field>
+          <field name="res_model">desembarque</field>
           <field name="view_type">form</field>
           <field name="view_mode">tree,form</field>
-      </record>-->
+      </record>
 
-      <menuitem name="Exportación" action="puerto_embarque" id="menu_action_puerto_embarque" parent="l10n_cl_partner_activities.menu_sii_config"/>
+      <menuitem name="Puerto de Embarque" action="puerto_embarque" id="menu_action_puerto_embarque" parent="l10n_cl_partner_activities.menu_sii_config"/>
+      <menuitem name="Puerto de Desembarque" action="puerto_desembarque" id="menu_action_puerto_desembarque" parent="l10n_cl_partner_activities.menu_sii_config"/>
 </openerp>

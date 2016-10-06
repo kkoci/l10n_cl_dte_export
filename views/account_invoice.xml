@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="embarque_form_view">
+            <field name="name">account.invoice.embarque.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form" />
+            <field name="arch" type="xml">
+                <field name='partner_id' position="after">
+                    <!--<field name="invoice_turn" domain="[('partner_id', '=', partner_id)]" invisible="True"/>-->
+                    <field name="puerto_embarque"/>
+                    <field name="puerto_desembarque"/>
+                    <field name="moneda_export"/>
+                </field>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="export1_form_view">
+            <field name="name">account.invoice.embarque.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form" />
+            <field name="arch" type="xml">
+                <field name='user_id' position="after">
+                    <!--<field name="invoice_turn" domain="[('partner_id', '=', partner_id)]" invisible="True"/>-->
+                    <field name="freight_price"/>
+                    <field name="receiving_country"/>
+                    <field name="destination_country"/>
+                    <field name="freight_price"/>
+                    <field name="package_total"/>
+                    <field name="assurance_total"/>
+                    <field name="total_clausule"/>
+                </field>
+            </field>
+        </record>
+
+        <!--<record model="ir.ui.view" id="invoice_supplier_turn_form_view">
+            <field name="name">account.invoice.supplier.turn.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <field name='partner_id' position="after">
+                    <field name="invoice_turn" domain="[('partner_id', '=', partner_id)]"  invisible="True"/>
+                    <field name="activity_description"
+                            placeholder="Glosa descriptiva" options="{'no_edit': True}"/>
+                </field>
+            </field>
+        </record>-->
+    </data>
+</openerp>

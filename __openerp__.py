@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','l10n_cl_invoice','l10n_cl_dte'],
+    'depends': ['base','l10n_cl_invoice','l10n_cl_dte', 'account', 'account_accountant',],
 
     # always loaded
     'data': [
@@ -29,6 +29,7 @@
         'views/templates.xml',
         'views/sii_menuitem.xml',
         'views/sii_exportacion.xml',
+        'views/account_invoice.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

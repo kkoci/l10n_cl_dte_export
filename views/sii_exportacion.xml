@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
       <record id="view_sii_puerto_embarque_form" model="ir.ui.view">
-          <field name="name">account.invoice.form</field>
-          <field name="model">account.invoice</field>
+          <field name="name">exportacion_sii.form</field>
+          <field name="model">exportacion_sii</field>
           <field name="arch" type="xml">
               <form string="Puerto de Embarque">
                   <group>
@@ -13,8 +13,8 @@
       </record>
 
       <record id="view_sii_puerto_embarque_tree" model="ir.ui.view">
-          <field name="name">account.invoice.tree</field>
-          <field name="model">account.invoice</field>
+          <field name="name">aexportacion_sii.tree</field>
+          <field name="model">exportacion_sii</field>
           <field name="arch" type="xml">
               <tree string="Puerto de Embarque">
                   <field name="shipment_port"/>
@@ -25,7 +25,7 @@
       <record model="ir.actions.act_window" id="puerto_embarque">
           <field name="name">Puerto de Embarque</field>
           <field name="type">ir.actions.act_window</field>
-          <field name="res_model">account.invoice</field>
+          <field name="res_model">exportacion_sii</field>
           <field name="view_type">form</field>
           <field name="view_mode">tree,form</field>
       </record>

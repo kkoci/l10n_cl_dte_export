@@ -27,6 +27,8 @@
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/sii_menuitem.xml',
+        'views/sii_exportacion.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

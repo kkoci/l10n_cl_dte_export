@@ -7,10 +7,14 @@
             <field name="inherit_id" ref="account.invoice_form" />
             <field name="arch" type="xml">
                 <field name='partner_id' position="after">
-                    <!--<field name="invoice_turn" domain="[('partner_id', '=', partner_id)]" invisible="True"/>-->
                     <field name="puerto_embarque"/>
                     <field name="puerto_desembarque"/>
                     <field name="moneda_export"/>
+                    <field name="tara_unit"/>
+                    <field name="weight_unit"/>
+                    <field name="net_weight_unit"/>
+                    <field name="transporte_tipo"/>
+                    <field name="modal_idad"/>
                 </field>
             </field>
         </record>
@@ -27,7 +31,9 @@
                     <field name="freight_price"/>
                     <field name="package_total"/>
                     <field name="assurance_total"/>
+                    <field name="clau_sula"/>
                     <field name="total_clausule"/>
+                    <field name="type_package"/>
                 </field>
             </field>
         </record>

@@ -60,6 +60,223 @@
           <field name="view_mode">tree,form</field>
       </record>
 
+      <record id="view_sii_via_transporte_form" model="ir.ui.view">
+          <field name="name">transporte.form</field>
+          <field name="model">transporte</field>
+          <field name="arch" type="xml">
+              <form string="Vía de transporte">
+                  <group>
+                    <field name="via_transport"/>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_sii_via_transporte_tree" model="ir.ui.view">
+          <field name="name">transporte.tree</field>
+          <field name="model">transporte</field>
+          <field name="arch" type="xml">
+              <tree string="Vía de transporte">
+                    <field name="via_transport"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="via_transporte">
+          <field name="name">Vía de transporte</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">transporte</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="view_sii_clausula_form" model="ir.ui.view">
+          <field name="name">clausula.form</field>
+          <field name="model">clausula</field>
+          <field name="arch" type="xml">
+              <form string="Clausula">
+                  <group>
+                    <field name="clausule"/>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_sii_clausula_tree" model="ir.ui.view">
+          <field name="name">clausula.tree</field>
+          <field name="model">clausula</field>
+          <field name="arch" type="xml">
+              <tree string="Clausula">
+                    <field name="clausule"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="clausula_action">
+          <field name="name">Clausula</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">clausula</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="view_sii_paquete_form" model="ir.ui.view">
+          <field name="name">paquete.form</field>
+          <field name="model">paquete</field>
+          <field name="arch" type="xml">
+              <form string="Tipo de paquete">
+                  <group>
+                    <field name="package_type"/>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_sii_paquete_tree" model="ir.ui.view">
+          <field name="name">paquete.tree</field>
+          <field name="model">paquete</field>
+          <field name="arch" type="xml">
+              <tree string="Tipo de paquete">
+                    <field name="package_type"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="paquete_view">
+          <field name="name">Tipo de paquete</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">paquete</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="view_sii_modalidad_form" model="ir.ui.view">
+          <field name="name">modalidad.form</field>
+          <field name="model">modalidad</field>
+          <field name="arch" type="xml">
+              <form string="Modalidad">
+                  <group>
+                    <field name="modality"/>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_sii_modalidad_tree" model="ir.ui.view">
+          <field name="name">modalidad.tree</field>
+          <field name="model">modalidad</field>
+          <field name="arch" type="xml">
+              <tree string="Modalidad">
+                    <field name="modality"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="modalidad_view">
+          <field name="name">Modalidad</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">modalidad</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="view_sii_tara_form" model="ir.ui.view">
+          <field name="name">tara.form</field>
+          <field name="model">tara</field>
+          <field name="arch" type="xml">
+              <form string="Unidad de medida de Tara">
+                  <group>
+                    <field name="tara_unidad"/>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_sii_tara_tree" model="ir.ui.view">
+          <field name="name">tara.tree</field>
+          <field name="model">tara</field>
+          <field name="arch" type="xml">
+              <tree string="Unidad de medida de Tara">
+                    <field name="tara_unidad"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="tara_view">
+          <field name="name">Unidad de medida de Tara</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">tara</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="view_sii_weight_form" model="ir.ui.view">
+          <field name="name">weight.form</field>
+          <field name="model">weight</field>
+          <field name="arch" type="xml">
+              <form string="Unidad de peso bruto">
+                  <group>
+                    <field name="weight_unidad"/>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_sii_weight_tree" model="ir.ui.view">
+          <field name="name">weight.tree</field>
+          <field name="model">weight</field>
+          <field name="arch" type="xml">
+              <tree string="Unidad de peso bruto">
+                    <field name="weight_unidad"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="peso_bruto_view">
+          <field name="name">Unidad de peso bruto</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">weight</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="view_sii_netweight_form" model="ir.ui.view">
+          <field name="name">netweight.form</field>
+          <field name="model">netweight</field>
+          <field name="arch" type="xml">
+              <form string="Unidad de peso neto">
+                  <group>
+                    <field name="net_weight_unidad"/>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_sii_netweight_tree" model="ir.ui.view">
+          <field name="name">netweight.tree</field>
+          <field name="model">netweight</field>
+          <field name="arch" type="xml">
+              <tree string="Unidad de peso neto">
+                    <field name="net_weight_unidad"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="peso_neto_view">
+          <field name="name">Unidad de peso neto</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">netweight</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
       <menuitem name="Puerto de Embarque" action="puerto_embarque" id="menu_action_puerto_embarque" parent="l10n_cl_partner_activities.menu_sii_config"/>
       <menuitem name="Puerto de Desembarque" action="puerto_desembarque" id="menu_action_puerto_desembarque" parent="l10n_cl_partner_activities.menu_sii_config"/>
+      <menuitem name="Vía de transporte" action="via_transporte" id="menu_action_via_transporte" parent="l10n_cl_partner_activities.menu_sii_config"/>
+      <menuitem name="Clausula" action="clausula_action" id="menu_action_clausula_action" parent="l10n_cl_partner_activities.menu_sii_config"/>
+      <menuitem name="Tipo de paquete" action="paquete_view" id="menu_action_paquete_view" parent="l10n_cl_partner_activities.menu_sii_config"/>
+      <menuitem name="Modalidad" action="modalidad_view" id="menu_action_modalidad_view" parent="l10n_cl_partner_activities.menu_sii_config"/>
+      <menuitem name="Unidad de medida de Tara" action="tara_view" id="menu_action_tara_view" parent="l10n_cl_partner_activities.menu_sii_config"/>
+      <menuitem name="Unidad de peso bruto" action="peso_bruto_view" id="menu_action_peso_bruto_view" parent="l10n_cl_partner_activities.menu_sii_config"/>
+      <menuitem name="Unidad de peso neto" action="peso_neto_view" id="menu_action_peso_neto_view" parent="l10n_cl_partner_activities.menu_sii_config"/>
 </openerp>

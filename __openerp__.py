@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','l10n_cl_invoice','l10n_cl_dte', 'account', 'account_accountant',],
+    'depends': ['base','l10n_cl_invoice','l10n_cl_dte', 'account', 'account_accountant', 'product',],
 
     # always loaded
     'data': [

@@ -24,7 +24,14 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'data/desembarque.csv',
+        'data/embarque.csv',
+        #'data/forma_pago.csv',
+        #'data/tipo_moneda.csv',
+        #'data/paises.csv',
+        #'data/unidad_medida.csv',
+        'data/transporte.csv',
+        'data/paquete.csv',
         'views/views.xml',
         'views/templates.xml',
         'views/sii_menuitem.xml',

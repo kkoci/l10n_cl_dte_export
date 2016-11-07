@@ -6,6 +6,7 @@
           <field name="arch" type="xml">
               <form string="Puerto de Embarque">
                   <group>
+                    <field name="code_embarque"/>
                     <field name="shipment_port"/>
                   </group>
               </form>
@@ -17,6 +18,7 @@
           <field name="model">embarque</field>
           <field name="arch" type="xml">
               <tree string="Puerto de Embarque">
+                  <field name="code_embarque"/>
                   <field name="shipment_port"/>
               </tree>
           </field>
@@ -36,6 +38,7 @@
           <field name="arch" type="xml">
               <form string="Puerto de Desembarque">
                   <group>
+                    <field name="code_desembarque"/>
                     <field name="landing_port"/>
                   </group>
               </form>
@@ -47,6 +50,7 @@
           <field name="model">desembarque</field>
           <field name="arch" type="xml">
               <tree string="Puerto de Desembarque">
+                    <field name="code_desembarque"/>
                     <field name="landing_port"/>
               </tree>
           </field>
@@ -66,6 +70,7 @@
           <field name="arch" type="xml">
               <form string="Vía de transporte">
                   <group>
+                    <field name="code_transporte"/>
                     <field name="via_transport"/>
                   </group>
               </form>
@@ -77,6 +82,7 @@
           <field name="model">transporte</field>
           <field name="arch" type="xml">
               <tree string="Vía de transporte">
+                    <field name="code_transporte"/>
                     <field name="via_transport"/>
               </tree>
           </field>
@@ -96,6 +102,7 @@
           <field name="arch" type="xml">
               <form string="Clausula">
                   <group>
+                    <field name="code_clausula"/>
                     <field name="clausule"/>
                   </group>
               </form>
@@ -107,6 +114,7 @@
           <field name="model">clausula</field>
           <field name="arch" type="xml">
               <tree string="Clausula">
+                    <field name="code_clausula"/>
                     <field name="clausule"/>
               </tree>
           </field>
@@ -124,8 +132,9 @@
           <field name="name">paquete.form</field>
           <field name="model">paquete</field>
           <field name="arch" type="xml">
-              <form string="Tipo de paquete">
+              <form string="Tipo de bulto">
                   <group>
+                    <field name="code_paquete"/>
                     <field name="package_type"/>
                   </group>
               </form>
@@ -136,14 +145,15 @@
           <field name="name">paquete.tree</field>
           <field name="model">paquete</field>
           <field name="arch" type="xml">
-              <tree string="Tipo de paquete">
+              <tree string="Tipo de bulto">
+                    <field name="code_paquete"/>
                     <field name="package_type"/>
               </tree>
           </field>
       </record>
 
       <record model="ir.actions.act_window" id="paquete_view">
-          <field name="name">Tipo de paquete</field>
+          <field name="name">Tipo de Bulto</field>
           <field name="type">ir.actions.act_window</field>
           <field name="res_model">paquete</field>
           <field name="view_type">form</field>
@@ -156,6 +166,7 @@
           <field name="arch" type="xml">
               <form string="Modalidad">
                   <group>
+                    <field name="code_modalidad"/>
                     <field name="modality"/>
                   </group>
               </form>
@@ -167,6 +178,7 @@
           <field name="model">modalidad</field>
           <field name="arch" type="xml">
               <tree string="Modalidad">
+                    <field name="code_modalidad"/>
                     <field name="modality"/>
               </tree>
           </field>
@@ -182,10 +194,11 @@
 
       <record id="view_sii_tara_form" model="ir.ui.view">
           <field name="name">tara.form</field>
-          <field name="model">tara</field>
+          <field name="model">tipo_tara</field>
           <field name="arch" type="xml">
               <form string="Unidad de medida de Tara">
                   <group>
+                    <field name="code_tara"/>
                     <field name="tara_unidad"/>
                   </group>
               </form>
@@ -194,9 +207,10 @@
 
       <record id="view_sii_tara_tree" model="ir.ui.view">
           <field name="name">tara.tree</field>
-          <field name="model">tara</field>
+          <field name="model">tipo_tara</field>
           <field name="arch" type="xml">
               <tree string="Unidad de medida de Tara">
+                    <field name="code_tara"/>
                     <field name="tara_unidad"/>
               </tree>
           </field>
@@ -205,7 +219,7 @@
       <record model="ir.actions.act_window" id="tara_view">
           <field name="name">Unidad de medida de Tara</field>
           <field name="type">ir.actions.act_window</field>
-          <field name="res_model">tara</field>
+          <field name="res_model">tipo_tara</field>
           <field name="view_type">form</field>
           <field name="view_mode">tree,form</field>
       </record>
@@ -216,6 +230,7 @@
           <field name="arch" type="xml">
               <form string="Unidad de peso bruto">
                   <group>
+                    <field name="code_weight"/>
                     <field name="weight_unidad"/>
                   </group>
               </form>
@@ -227,6 +242,7 @@
           <field name="model">weight</field>
           <field name="arch" type="xml">
               <tree string="Unidad de peso bruto">
+                    <field name="code_weight"/>
                     <field name="weight_unidad"/>
               </tree>
           </field>
@@ -246,6 +262,7 @@
           <field name="arch" type="xml">
               <form string="Unidad de peso neto">
                   <group>
+                    <field name="code_netweight"/>
                     <field name="net_weight_unidad"/>
                   </group>
               </form>
@@ -257,6 +274,7 @@
           <field name="model">netweight</field>
           <field name="arch" type="xml">
               <tree string="Unidad de peso neto">
+                    <field name="code_netweight"/>
                     <field name="net_weight_unidad"/>
               </tree>
           </field>

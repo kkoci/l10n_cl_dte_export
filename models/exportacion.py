@@ -76,6 +76,20 @@ class moneda_export(models.Model):
     code_moneda = fields.Integer(string="Código")
     moneda = fields.Char(string="Moneda de exportación")
 
+class incoming_country(models.Model):
+    _name = 'incoming_country'
+    _rec_name = 'country_incoming'
+
+    code_incoming = fields.Integer(string="Código")
+    country_incoming = fields.Char(string="País receptor")
+
+class outgoing_export(models.Model):
+    _name = 'outgoing_country'
+    _rec_name = 'country_outgoing'
+
+    code_outgoing = fields.Integer(string="Código")
+    country_outgoing = fields.Char(string="País destino")
+
 class account_invoice(models.Model):
     #_inherit = ["account.invoice", "product.uom"]
     _inherit = "account.invoice"
@@ -89,8 +103,8 @@ class account_invoice(models.Model):
     clau_sula = fields.Many2one(comodel_name="clausula", string="Clausula")
     transporte_tipo = fields.Many2one(comodel_name="transporte", string="Vía de transporte")
     freight_price = fields.Float(string="Flete")
-    receiving_country = fields.Many2one('res.country', string="País receptor")
-    destination_country = fields.Many2one('res.country', string="País destino")
+    receiving_country = fields.Many2one(comodel_name="incoming_country", string="País receptor")
+    destination_country = fields.Many2one(comodel_name="outgoing_country", string="País destino")
     package_total = fields.Integer(string="Total Bultos")
     assurance_total = fields.Float(string="Seguro")
     total_clausule = fields.Float(string="Total cláusula de Venta")

@@ -288,6 +288,38 @@
           <field name="view_mode">tree,form</field>
       </record>
 
+      <record id="view_sii_moneda_form" model="ir.ui.view">
+          <field name="name">moneda.form</field>
+          <field name="model">moneda_export</field>
+          <field name="arch" type="xml">
+              <form string="Moneda de exportación">
+                  <group>
+                    <field name="code_moneda"/>
+                    <field name="moneda"/>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_sii_moneda_tree" model="ir.ui.view">
+          <field name="name">moneda.tree</field>
+          <field name="model">moneda_export</field>
+          <field name="arch" type="xml">
+              <tree string="Moneda de exportación">
+                    <field name="code_moneda"/>
+                    <field name="moneda"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="moneda_export_view">
+          <field name="name">Moneda de exportación</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">moneda_export</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
       <menuitem name="Puerto de Embarque" action="puerto_embarque" id="menu_action_puerto_embarque" parent="l10n_cl_partner_activities.menu_sii_config"/>
       <menuitem name="Puerto de Desembarque" action="puerto_desembarque" id="menu_action_puerto_desembarque" parent="l10n_cl_partner_activities.menu_sii_config"/>
       <menuitem name="Vía de transporte" action="via_transporte" id="menu_action_via_transporte" parent="l10n_cl_partner_activities.menu_sii_config"/>
@@ -297,4 +329,5 @@
       <menuitem name="Unidad de medida de Tara" action="tara_view" id="menu_action_tara_view" parent="l10n_cl_partner_activities.menu_sii_config"/>
       <menuitem name="Unidad de peso bruto" action="peso_bruto_view" id="menu_action_peso_bruto_view" parent="l10n_cl_partner_activities.menu_sii_config"/>
       <menuitem name="Unidad de peso neto" action="peso_neto_view" id="menu_action_peso_neto_view" parent="l10n_cl_partner_activities.menu_sii_config"/>
+      <menuitem name="Moneda de exportación" action="moneda_export_view" id="menu_action_moneda_export_view" parent="l10n_cl_partner_activities.menu_sii_config"/>
 </openerp>

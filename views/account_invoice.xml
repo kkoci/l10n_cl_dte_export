@@ -7,14 +7,15 @@
             <field name="inherit_id" ref="account.invoice_form" />
             <field name="arch" type="xml">
                 <field name='partner_id' position="after">
-                    <field name="puerto_embarque"/>
-                    <field name="puerto_desembarque"/>
-                    <field name="moneda_export"/>
-                    <field name="tara_unit"/>
-                    <field name="weight_unit"/>
-                    <field name="net_weight_unit"/>
-                    <field name="transporte_tipo"/>
-                    <field name="modal_idad"/>
+                    <field name="is_export" class="oe_edit_only"/>
+                    <field name="puerto_embarque" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="puerto_desembarque" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="moneda_export" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="tara_unit" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="weight_unit" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="net_weight_unit" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="transporte_tipo" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="modal_idad" attrs="{'invisible': [('is_export', '=', False)]}"/>
                 </field>
             </field>
         </record>
@@ -25,15 +26,15 @@
             <field name="arch" type="xml">
                 <field name='user_id' position="after">
                     <!--<field name="invoice_turn" domain="[('partner_id', '=', partner_id)]" invisible="True"/>-->
-                    <field name="freight_price"/>
-                    <field name="receiving_country"/>
-                    <field name="destination_country"/>
-                    <field name="freight_price"/>
-                    <field name="package_total"/>
-                    <field name="assurance_total"/>
-                    <field name="clau_sula"/>
-                    <field name="total_clausule"/>
-                    <field name="type_package"/>
+                    <field name="freight_price" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="receiving_country" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="destination_country" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="freight_price" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="package_total" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="assurance_total" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="clau_sula" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="total_clausule" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="type_package" attrs="{'invisible': [('is_export', '=', False)]}"/>
                 </field>
             </field>
         </record>

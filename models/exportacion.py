@@ -9,9 +9,15 @@ class embarque(models.Model):
     _name = 'embarque'
     _rec_name = 'shipment_port'
 
-    #forma_pago = fields.Many2one('forma_pago')
     code_embarque = fields.Integer(string="Código")
     shipment_port = fields.Char(string="Puerto de embarque")
+
+class forma_pago_export(models.Model):
+    _name = 'forma_pago_export'
+    _rec_name = 'forma_p_export'
+
+    code_forma_pago = fields.Integer(string="Código")
+    forma_p_export = fields.Char(string="Forma de pago Exportación")
 
 class desembarque(models.Model):
     _name = 'desembarque'
@@ -95,6 +101,7 @@ class account_invoice(models.Model):
     _inherit = "account.invoice"
 
     is_export = fields.Boolean(string="¿Es exportación?", default=False)
+    payment_forma = fields.Many2one(comodel_name="forma_pago_export", string="Forma de Pago exportación")
     puerto_embarque = fields.Many2one(comodel_name="embarque", string="Puerto de Embarque")
     puerto_desembarque = fields.Many2one(comodel_name="desembarque", string="Puerto de Desembarque")
     moneda_export = fields.Many2one(comodel_name='moneda_export', string="Moneda de la exportación")

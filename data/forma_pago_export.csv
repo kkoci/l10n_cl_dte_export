@@ -1,0 +1,7 @@
+id,code_forma_pago,forma_p_export
+7060,1,COB1
+7061,2,COBRANZA
+7062,11,ACRED
+7063,12,CBOF
+7064,21,S/PAGO
+7065,32,ANTICIPO

@@ -26,6 +26,7 @@
             <field name="arch" type="xml">
                 <field name='user_id' position="after">
                     <!--<field name="invoice_turn" domain="[('partner_id', '=', partner_id)]" invisible="True"/>-->
+                    <field name="payment_forma" attrs="{'invisible': [('is_export', '=', False)]}"/>
                     <field name="freight_price" attrs="{'invisible': [('is_export', '=', False)]}"/>
                     <field name="receiving_country" attrs="{'invisible': [('is_export', '=', False)]}"/>
                     <field name="destination_country" attrs="{'invisible': [('is_export', '=', False)]}"/>

@@ -1,0 +1,24 @@
+<openerp>
+  <data>
+        <record id="product_uom_categ_form_view" model="ir.ui.view">
+            <field name="name">product.uom.categ.form</field>
+            <field name="model">product.uom.categ</field>
+            <field name="inherit_id" ref="product.product_uom_categ_form_view" />
+            <field name="arch" type="xml">
+            <field name='name' position="after">
+              <field name="code_product"/>
+            </field>
+          </field>
+        </record>
+     <record id="product_uom_categ_tree_view" model="ir.ui.view">
+     <field name="name">product.uom.categ.tree</field>
+     <field name="model">product.uom.categ</field>
+     <field name="arch" type="xml">
+         <tree string="Units of Measure categories">
+             <field name="name"/>
+             <field name="code_product"/>
+         </tree>
+     </field>
+ </record>
+  </data>
+</openerp>

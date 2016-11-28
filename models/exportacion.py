@@ -96,6 +96,27 @@ class outgoing_export(models.Model):
     code_outgoing = fields.Integer(string="Código")
     country_outgoing = fields.Char(string="País destino")
 
+class product_uom_categ(models.Model):
+    _inherit = 'product.uom.categ'
+
+    code_product = fields.Char(string="Código Unidad")
+
+class country(models.Model):
+    _name = 'res.country'
+    _inherit = 'res.country'
+
+    iso_code = fields.Integer(string="Código del País, para exportación")
+
+class paymentTerm(models.Model):
+    _inherit = 'account.payment.term'
+
+    dte_sii_code = fields.Selection(selection_add=[('4', 'COB1'),
+        ('5','COBRANZA'),
+        ('11','ACRED'),
+        ('12','CBOF'),
+        ('21','S/PAGO'),
+        ('32','ANTICIPO')])
+
 class account_invoice(models.Model):
     #_inherit = ["account.invoice", "product.uom"]
     _inherit = "account.invoice"
@@ -110,14 +131,14 @@ class account_invoice(models.Model):
     clau_sula = fields.Many2one(comodel_name="clausula", string="Clausula")
     transporte_tipo = fields.Many2one(comodel_name="transporte", string="Vía de transporte")
     freight_price = fields.Float(string="Flete")
-    receiving_country = fields.Many2one(comodel_name="incoming_country", string="País receptor")
-    destination_country = fields.Many2one(comodel_name="outgoing_country", string="País destino")
+    receiving_country = fields.Many2one(comodel_name="res.country", string="País receptor")
+    destination_country = fields.Many2one(comodel_name="res.country", string="País destino")
     package_total = fields.Integer(string="Total Bultos")
     assurance_total = fields.Float(string="Seguro")
     total_clausule = fields.Float(string="Total cláusula de Venta")
-    tara_unit = fields.Many2one(comodel_name="tipo_tara", string="Unidad de medida de Tara")
-    weight_unit = fields.Many2one(comodel_name="weight", string="Unidad de peso bruto")
-    net_weight_unit = fields.Many2one(comodel_name="netweight", string="Unidad de peso neto")
+    tara_unit = fields.Many2one(comodel_name="product.uom.categ", string="Unidad de medida de Tara")
+    weight_unit = fields.Many2one(comodel_name="product.uom.categ", string="Unidad de peso bruto")
+    net_weight_unit = fields.Many2one(comodel_name="product.uom.categ", string="Unidad de peso neto")
     #tara_unit = fields.Char(string="Unidad de medida de Tara")
     #weight_unit = fields.Char(string="Unidad de peso bruto")
     #net_weight_unit = fields.Char(string="Unidad de peso neto")

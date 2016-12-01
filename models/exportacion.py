@@ -75,31 +75,16 @@ class netweight(models.Model):
     code_netweight = fields.Integer(string="Código")
     net_weight_unidad = fields.Char(string="Unidad de peso neto")
 
-class moneda_export(models.Model):
-    _name = 'moneda_export'
-    _rec_name = 'moneda'
-
-    code_moneda = fields.Integer(string="Código")
-    moneda = fields.Char(string="Moneda de exportación")
-
-class incoming_country(models.Model):
-    _name = 'incoming_country'
-    _rec_name = 'country_incoming'
-
-    code_incoming = fields.Integer(string="Código")
-    country_incoming = fields.Char(string="País receptor")
-
-class outgoing_export(models.Model):
-    _name = 'outgoing_country'
-    _rec_name = 'country_outgoing'
-
-    code_outgoing = fields.Integer(string="Código")
-    country_outgoing = fields.Char(string="País destino")
-
 class product_uom_categ(models.Model):
     _inherit = 'product.uom.categ'
 
     code_product = fields.Char(string="Código Unidad")
+
+class Currency(models.Model):
+    _name = 'res.currency'
+    _inherit = 'res.currency'
+
+    code_currency = fields.Integer(string="Código de la moneda")
 
 class country(models.Model):
     _name = 'res.country'
@@ -125,7 +110,7 @@ class account_invoice(models.Model):
     payment_forma = fields.Many2one(comodel_name="forma_pago_export", string="Forma de Pago exportación")
     puerto_embarque = fields.Many2one(comodel_name="embarque", string="Puerto de Embarque")
     puerto_desembarque = fields.Many2one(comodel_name="desembarque", string="Puerto de Desembarque")
-    moneda_export = fields.Many2one(comodel_name='moneda_export', string="Moneda de la exportación")
+    moneda_export = fields.Many2one(comodel_name='res.currency', string="Moneda de la exportación")
     modal_idad = fields.Many2one(comodel_name="modalidad", string="Modalidad")
     type_package = fields.Many2one(comodel_name="paquete", string="Tipo de Bulto")
     clau_sula = fields.Many2one(comodel_name="clausula", string="Clausula")

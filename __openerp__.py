@@ -39,6 +39,7 @@
         'views/views.xml',
         'views/product_uom_categ.xml',
         'views/res_country.xml',
+        'views/res_currency.xml',
         'views/templates.xml',
         'views/sii_menuitem.xml',
         'views/sii_exportacion.xml',

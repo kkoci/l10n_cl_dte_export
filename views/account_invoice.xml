@@ -7,15 +7,28 @@
             <field name="inherit_id" ref="account.invoice_form" />
             <field name="arch" type="xml">
                 <field name='partner_id' position="after">
+                    <!--<h3>Datos básicos</h3>-->
                     <field name="is_export" class="oe_edit_only"/>
-                    <field name="puerto_embarque" attrs="{'invisible': [('is_export', '=', False)]}"/>
-                    <field name="puerto_desembarque" attrs="{'invisible': [('is_export', '=', False)]}"/>
-                    <field name="moneda_export" attrs="{'invisible': [('is_export', '=', False)]}"/>
-                    <field name="tara_unit" attrs="{'invisible': [('is_export', '=', False)]}"/>
-                    <field name="weight_unit" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="es_servicio" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <!--<field name="payment_forma" attrs="{'invisible': [('is_export', '=', False)]}"/>-->
+                    <field name="forma_de_pago_export" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="fecha_cancelacion" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="monto_cancelado" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="saldo_insoluto" attrs="{'invisible': [('is_export', '=', False)]}"/>
                     <field name="net_weight_unit" attrs="{'invisible': [('is_export', '=', False)]}"/>
-                    <field name="transporte_tipo" attrs="{'invisible': [('is_export', '=', False)]}"/>
-                    <field name="modal_idad" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="fecha_pago" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="monto_pago" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="glosa" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="periodo_desde" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="periodo_hasta" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="medio_pago" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="tipo_cuenta_pago" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="numero_cta_pago" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="banco_pago" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="termino_de_pago" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="termino_pago_glosa" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="dias_termino_pago" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="fecha_vencimiento" attrs="{'invisible': [('is_export', '=', False)]}"/>
                 </field>
             </field>
         </record>
@@ -26,17 +39,60 @@
             <field name="arch" type="xml">
                 <field name='user_id' position="after">
                     <!--<field name="invoice_turn" domain="[('partner_id', '=', partner_id)]" invisible="True"/>-->
-                    <field name="payment_forma" attrs="{'invisible': [('is_export', '=', False)]}"/>
-                    <field name="freight_price" attrs="{'invisible': [('is_export', '=', False)]}"/>
-                    <field name="receiving_country" attrs="{'invisible': [('is_export', '=', False)]}"/>
-                    <field name="destination_country" attrs="{'invisible': [('is_export', '=', False)]}"/>
-                    <field name="freight_price" attrs="{'invisible': [('is_export', '=', False)]}"/>
-                    <field name="package_total" attrs="{'invisible': [('is_export', '=', False)]}"/>
-                    <field name="assurance_total" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <!--<separator string="Datos aduanales"/>-->
+                    <field name="modal_idad" attrs="{'invisible': [('is_export', '=', False)]}"/>
                     <field name="clau_sula" attrs="{'invisible': [('is_export', '=', False)]}"/>
                     <field name="total_clausule" attrs="{'invisible': [('is_export', '=', False)]}"/>
-                    <field name="type_package" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="transporte_tipo" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="booking" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="puerto_embarque" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="puerto_desembarque" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="tara" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="tara_unit" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="weight" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="weight_unit" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="neto" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="net_weight_unit" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="tot_items" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="tot_bultos" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="monto_flete" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="monto_seguro" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="receiving_country" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="destination_country" attrs="{'invisible': [('is_export', '=', False)]}"/>
                 </field>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="export2_form_view">
+            <field name="name">account.invoice.embarque2.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form" />
+            <field name="arch" type="xml">
+                <field name='fiscal_position_id' position="after">
+                    <!--<field name="invoice_turn" domain="[('partner_id', '=', partner_id)]" invisible="True"/>-->
+                    <!--<separator string="Transportista"/>-->
+                    <field name="vehicle" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="chofer" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="patente" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                </field>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="export3_form_view">
+            <field name="name">account.invoice.embarque3.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form" />
+            <field name="arch" type="xml">
+            <field name='fiscal_position_id' position="after">
+                    <field name="moneda_export" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="tipo_cambio" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="monto_exe_export" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="total_export_moneda" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="type_package" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="cant_bultos" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="marcas" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="id_container" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="sello" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="emisor_sello" attrs="{'invisible': [('is_export', '=', False)]}"/>
+            </field>
             </field>
         </record>
 

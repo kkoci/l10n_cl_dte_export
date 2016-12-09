@@ -1,26 +1,26 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "l10n_cl_dte_export",
+    'name': "Facturación chilena de exportación",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Módulo que hereda de l10n_cl_dte y añade campos/vistas/modelos 
+        para facturar exportaciones, ćompatible con datos aduanales""",
 
     'description': """
-        Long description of module's purpose
+        Facturación de exportación Directa al SII
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Kristian Koci",
+    'website': "https//kkoci.github.io",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
     # for the full list
-    'category': 'Uncategorized',
+    'category': 'Accounting',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','l10n_cl_invoice','l10n_cl_dte', 'account', 'account_accountant', 'product',],
+    'depends': ['base','l10n_cl_invoice','l10n_cl_dte', 'account', 'account_accountant', 'product','fleet','stock',],
 
     # always loaded
     'data': [
@@ -44,6 +44,7 @@
         'views/sii_menuitem.xml',
         'views/sii_exportacion.xml',
         'views/account_invoice.xml',
+        'views/partner_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

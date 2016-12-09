@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_partner_dte_export_form" model="ir.ui.view">
+            <field name="model">res.partner</field>
+            <field name="name">view.partner.dte.export.form</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <field name="title" position="before">
+                    <field name="direccion_postal" />
+                    <field name="comuna_postal" />
+                    <field name="ciudad_postal" />
+                    <field name="codigo_vendedor" />
+                    <field name="identificacion_adicional_vendedor" />
+                    <field name="identificacion_adicional_transporte" />
+                </field>
+            </field>
+        </record>
+        <record id="view_partner_dte_export_form2" model="ir.ui.view">
+            <field name="model">res.partner</field>
+            <field name="name">view.partner.dte.export.form2</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <field name="website" position="after">
+                    <field name="es_operador" class="oe_edit_only"/>
+                    <!--<field name="nombre_operador" attrs="{'invisible': [('es_operador', '=', False)]}"/>-->
+                    <field name="codigo_operador" attrs="{'invisible': [('es_operador', '=', False)]}"/>
+                    <field name="codigo_interno_receptor" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

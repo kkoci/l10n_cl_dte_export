@@ -84,10 +84,10 @@ class netweight(models.Model):
 
 class forma_pago_export(models.Model):
     _name = 'forma_pago_export'
-    _rec_name = 'fmapagoexport'
+    _rec_name = 'forma_pago_export'
 
     code_fma_pago_export = fields.Integer(string="Código forma pago exportación")
-    fmapagoexport = fields.Char(string="Forma pago de exportación")
+    forma_pago_export= fields.Char(string="Forma pago de exportación")
 
 class product_uom_categ(models.Model):
     _inherit = 'product.uom.categ'

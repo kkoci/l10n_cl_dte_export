@@ -12,13 +12,6 @@ class embarque(models.Model):
     code_embarque = fields.Integer(string="Código")
     shipment_port = fields.Char(string="Puerto de embarque")
 
-class forma_pago_export(models.Model):
-    _name = 'forma_pago_export'
-    _rec_name = 'forma_p_export'
-
-    code_forma_pago = fields.Integer(string="Código")
-    forma_p_export = fields.Char(string="Forma de pago Exportación")
-
 class desembarque(models.Model):
     _name = 'desembarque'
     _rec_name = 'landing_port'
@@ -84,10 +77,10 @@ class netweight(models.Model):
 
 class forma_pago_export(models.Model):
     _name = 'forma_pago_export'
-    _rec_name = 'forma_pago_export'
+    _rec_name = 'forma_pago_exportacion'
 
     code_fma_pago_export = fields.Integer(string="Código forma pago exportación")
-    forma_pago_export= fields.Char(string="Forma pago de exportación")
+    forma_pago_exportacion= fields.Char(string="Forma pago de exportación")
 
 class product_uom_categ(models.Model):
     _inherit = 'product.uom.categ'
@@ -133,7 +126,7 @@ class account_invoice(models.Model):
         ('3','Despacho por Cuenta del Emisor a Otras Instalaciones')], string="Tipo de despacho", readonly=True, states={'draft': [('readonly', False)]})
     es_servicio = fields.Many2one(comodel_name="servicio", string="Es una factura por servicio")
     #payment_forma = fields.Many2one(comodel_name="forma_pago_export", string="Forma de Pago exportación")
-    forma_de_pago_export = fields.Many2one(comodel_name="forma_pago_export", string="Forma pago de exportación")
+    pago_export = fields.Many2one(comodel_name="forma_pago_export", string="Forma pago de exportación")
     fecha_cancelacion = fields.Date(string="Fecha de Cancelacion del DTE")
     monto_cancelado = fields.Float(string="Monto Cancelado al emitirse el documento", help="Monto Cancelado al emitirse el documento")
     saldo_insoluto = fields.Float(string="Saldo Insoluto al emitirse el documento")

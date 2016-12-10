@@ -11,7 +11,7 @@
                     <field name="is_export" class="oe_edit_only"/>
                     <field name="es_servicio" attrs="{'invisible': [('is_export', '=', False)]}"/>
                     <!--<field name="payment_forma" attrs="{'invisible': [('is_export', '=', False)]}"/>-->
-                    <field name="forma_de_pago_export" attrs="{'invisible': [('is_export', '=', False)]}"/>
+                    <field name="pago_export" attrs="{'invisible': [('is_export', '=', False)]}"/>
                     <field name="fecha_cancelacion" attrs="{'invisible': [('is_export', '=', False)]}"/>
                     <field name="monto_cancelado" attrs="{'invisible': [('is_export', '=', False)]}"/>
                     <field name="saldo_insoluto" attrs="{'invisible': [('is_export', '=', False)]}"/>

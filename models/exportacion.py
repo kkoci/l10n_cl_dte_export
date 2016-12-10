@@ -84,10 +84,10 @@ class netweight(models.Model):
 
 class forma_pago_export(models.Model):
     _name = 'forma_pago_export'
-    _rec_name = 'fma_pago_export'
+    _rec_name = 'fmapagoexport'
 
     code_fma_pago_export = fields.Integer(string="Código forma pago exportación")
-    fma_pago_export = fields.Char(string="Forma pago de exportación")
+    fmapagoexport = fields.Char(string="Forma pago de exportación")
 
 class product_uom_categ(models.Model):
     _inherit = 'product.uom.categ'
@@ -133,7 +133,7 @@ class account_invoice(models.Model):
         ('3','Despacho por Cuenta del Emisor a Otras Instalaciones')], string="Tipo de despacho", readonly=True, states={'draft': [('readonly', False)]})
     es_servicio = fields.Many2one(comodel_name="servicio", string="Es una factura por servicio")
     #payment_forma = fields.Many2one(comodel_name="forma_pago_export", string="Forma de Pago exportación")
-    forma_de_pago_export = fields.Many2one(comodel_name="fma_pago_export", string="Forma pago de exportación")
+    forma_de_pago_export = fields.Many2one(comodel_name="fmapagoexport", string="Forma pago de exportación")
     fecha_cancelacion = fields.Date(string="Fecha de Cancelacion del DTE")
     monto_cancelado = fields.Float(string="Monto Cancelado al emitirse el documento", help="Monto Cancelado al emitirse el documento")
     saldo_insoluto = fields.Float(string="Saldo Insoluto al emitirse el documento")
@@ -145,7 +145,10 @@ class account_invoice(models.Model):
     periodo_desde = fields.Date(string="Período desde")
     periodo_hasta = fields.Date(string="Período hasta")
     medio_pago = fields.Char(string="Medio de pago")
-    tipo_cuenta_pago = fields.Char(string="Tipo cuenta pago")
+    tipo_cuenta_pago = fields.Selection([
+        ('1','AHORRO'),
+        ('2','CORRIENTE'),
+        ('3','VISTA')], string="Tipo de cuenta", readonly=True, states={'draft': [('readonly', False)]})
     numero_cta_pago = fields.Char(string="Numero cuenta pago")
     banco_pago = fields.Many2one('res.bank', 'Banco donde se realizo el pago', readonly=True)
     termino_de_pago = fields.Char(string="Término del pago")
@@ -161,6 +164,12 @@ class account_invoice(models.Model):
     vehicle = fields.Many2one('fleet.vehicle', string="Vehículo", readonly=False, states={'done':[('readonly',True)]})
     chofer= fields.Many2one('res.partner', string="Chofer", readonly=False, states={'done':[('readonly',True)]})
     patente = fields.Char(string="Patente", readonly=False, states={'done':[('readonly',True)]})
+    transport_type = fields.Selection(
+        [('2','Despacho por cuenta de empresa'),('1','Despacho por cuenta del cliente'),('3','Despacho Externo'),('0','Sin Definir')],
+        string="Tipo de Despacho",
+        required=True,
+        default="2",
+        readonly=False, states={'done':[('readonly',True)]})
     #Aduana
     modal_idad = fields.Many2one(comodel_name="modalidad", string="Modalidad de Venta")
     clau_sula = fields.Many2one(comodel_name="clausula", string="Clausula")

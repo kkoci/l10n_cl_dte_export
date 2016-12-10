@@ -26,6 +26,10 @@
                     <!--<field name="nombre_operador" attrs="{'invisible': [('es_operador', '=', False)]}"/>-->
                     <field name="codigo_operador" attrs="{'invisible': [('es_operador', '=', False)]}"/>
                     <field name="codigo_interno_receptor" />
+                    <field name="es_extranjero" class="oe_edit_only"/>
+                    <field name="identificacion_extranjero" attrs="{'invisible': [('es_extranjero', '=', False)]}"/>
+                    <field name="nacionalidad" attrs="{'invisible': [('es_extranjero', '=', False)]}"/>
+                    <field name="identificacion_adicional_extranjero" attrs="{'invisible': [('es_extranjero', '=', False)]}"/>
                 </field>
             </field>
         </record>

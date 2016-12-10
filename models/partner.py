@@ -20,3 +20,7 @@ class partner(models.Model):
     es_operador = fields.Boolean(string="¿Es un operador aduanal?", default=False)
     nombre_operador = fields.Char(string="Nombre del operador")
     codigo_operador = fields.Char(string="Código del operador")
+    es_extranjero = fields.Boolean(string="¿Es extranjero?", default=False)
+    identificacion_extranjero = fields.Char(string="Identificacion")
+    nacionalidad = fields.Many2one(comodel_name="res.country", string="Nacionalidad")
+    identificacion_adicional_extranjero = fields.Char(string="Id adicional extranjero")

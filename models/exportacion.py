@@ -133,7 +133,7 @@ class account_invoice(models.Model):
         ('3','Despacho por Cuenta del Emisor a Otras Instalaciones')], string="Tipo de despacho", readonly=True, states={'draft': [('readonly', False)]})
     es_servicio = fields.Many2one(comodel_name="servicio", string="Es una factura por servicio")
     #payment_forma = fields.Many2one(comodel_name="forma_pago_export", string="Forma de Pago exportación")
-    forma_de_pago_export = fields.Many2one(comodel_name="fmapagoexport", string="Forma pago de exportación")
+    forma_de_pago_export = fields.Many2one(comodel_name="forma_pago_export", string="Forma pago de exportación")
     fecha_cancelacion = fields.Date(string="Fecha de Cancelacion del DTE")
     monto_cancelado = fields.Float(string="Monto Cancelado al emitirse el documento", help="Monto Cancelado al emitirse el documento")
     saldo_insoluto = fields.Float(string="Saldo Insoluto al emitirse el documento")
